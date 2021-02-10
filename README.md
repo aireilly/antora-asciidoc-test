@@ -2,4 +2,4 @@
 
 A sample Antora site.
 
-Install Antora, and then run `antora playbook.yml` and commit your changes.
+Run `antora playbook.yml` to build the output.
