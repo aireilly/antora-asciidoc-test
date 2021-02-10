@@ -1,7 +1,0 @@
-:navtitle: Links
-
-= Links, xrefs and link text
-
-Antora supports many types of links, for example, https://docs.antora.org/antora/2.3/navigation/xrefs-and-link-text/[xrefs across components].
-
-However, to be FCC compliant, use the `link` syntax to reference across assemblies, you can use attributes to make these work in different contexts.

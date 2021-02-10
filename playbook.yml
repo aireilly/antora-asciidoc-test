@@ -9,7 +9,7 @@ content:
     branches: HEAD
   - url: ./
     branches: HEAD
-    start_path: what-is-antora
+    start_path: test-doc-a
 ui:
   bundle:
     url: ./ui/build/ui-bundle.zip
