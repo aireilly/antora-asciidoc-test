@@ -1,2 +1,2 @@
-# antora-asciidoc-test
-antora-asciidoc-test
+# Get started with an Antora site
+

@@ -1,0 +1,71 @@
+:navtitle: FCC (mod docs)
+
+= Antora and Flexible Content
+
+Red Hat is committed to https://source.redhat.com/groups/public/flexible-customer-content/flexible_customer_content_wiki/business_case[Flexible Content] and to an https://www.redhat.com/en/about/development-model[open source development model].
+
+Typically, documentation for RH customers consists of some content from upstream and some content from downstream.
+
+Downstream content needs to conform to the https://redhat-documentation.github.io/modular-docs/[Modular Documentation] standards.
+
+Upstream content structure is typically unique to each project.
+
+Antora allows us to write content using a standard system that can easily be transformed to the FCC standard.
+
+However there are some terminology clashes:
+
+Modules:: In FCC, modules are defined as standalone files that contain concept, procedure, or reference content.
++
+--
+This definition is very similar to the DITA topic concept.
+In Antora, modules are a method of dividing content that is versioned together.
+For example, a repo might contain software and documentation that is versioned v1, v2, etc.
+
+However, you might want to separate the installation docs from the API docs, that's when you could use the Antora module feature.
+
+NOTE: Typically, a project starting out uses the default `ROOT` module name in Antora, modules are an advanced feature.
+--
+
+Component:: In Antora, a component is defined by an `antora.yml` file. Typically a repo contains only one `antora.yml` file and therefore only one component.
++
+--
+A component can be tagged using Git to represent versions, v1, v2, etc.
+Antora can generate all the versions of a repo, by specifying branches and tags in the xref:playbook.adoc[].
+--
+
+
+Assemblies and Pages:: FCC assemblies are the equivalent of Antora pages.
++
+--
+In antora, each component contains pages, for example, `modules/ROOT/pages/index.adoc` that are the smallest unit of content that a reader can view.
+An antora page can be a long document or a set of include statements typical of an FCC assembly.
+
+NOTE: https://github.com/fbolton/nebel[Nebel] supports creating FCC compliant content if your Antora content is not _modularized_.
+--
+
+Partials and FCC modules:: In antora you put assemblies in the `modules/ROOT/pages/` directory and FCC modules in the `modules/ROOT/partials` directory.
++
+--
+In Antora, the syntax for including content is:
+
+----
+include::partial$proc_filename.adoc
+----
+
+whereas a typical FFC assembly might contain
+
+----
+include::modules/proc_filename.adoc
+----
+
+Here are two methods to avoid problems:
+
+* Use an attribute to specify location and set it to different values for FCC/Antora:
++
+----
+include::{MOD_LOC}proc_filename.adoc
+----
+
+* Use nebel to create your FCC compliant file structure.
+
+--

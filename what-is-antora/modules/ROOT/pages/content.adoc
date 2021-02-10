@@ -1,0 +1,51 @@
+:navtitle: Content sources
+
+= Creating Antora content sources
+
+Typically, tech writers familiar with `asciidoctor` have difficulty understanding content sources in Antora.
+This is an experiment where I added a https://docs.antora.org/antora/2.3/playbook/set-up-playbook/#configure-your-sites-content-sources[content source] to https://gitlab.cee.redhat.com/pwright/pwright.pages.redhat.com[my repo] to illustrate the basics.
+
+
+. I added a new source to `playbook.yml` (see xref:playbook.adoc[]):
++
+----
+  - url: ./
+    branches: HEAD
+    start_path: what-is-antora
+----
+
+. I ran `antora playbook.yml`
++
+----
+[paulwright@thinkpad pwright.pages.redhat.com]$ antora playbook.yml 
+error: the start path 'what-is-antora' does not exist in /home/paulwright/repos/gitlab/pwright.pages.redhat.com (ref: master <worktree>)
+----
+
+. I created the `what-is-antora` directory and ran the playbook again:
++
+----
+[paulwright@thinkpad pwright.pages.redhat.com]$ antora playbook.yml 
+error: antora.yml not found in /home/paulwright/repos/gitlab/pwright.pages.redhat.com (ref: master <worktree> | path: what-is-antora)
+----
+
+. I added the following `antora.yml` to the `what-is-antora` directory:
++
+----
+name: what-is-antora
+title: What is Antora
+version: 'latest'
+start_ROOT: ROOT:index.adoc
+nav:
+- modules/ROOT/nav.adoc
+----
++
+The playbook runs but there's no content for this source.
+
+. I added a `modules/ROOT/pages/index.adoc` file under the `what-is-antora` directory and ran it again.
++
+Now the site builds and the content of `index.adoc` is rendered.
+
+This shows:
+
+* The minimum requirement for an antora site.
+* You can have two content sources in same repo

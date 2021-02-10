@@ -1,0 +1,30 @@
+site:
+  title: Aidan Reilly
+  # the 404 page and sitemap files only get generated when the url property is set
+  # url: https://aireilly...
+  start_page: aireilly::index.adoc
+content:
+  sources:
+  - url: ./
+    branches: HEAD
+  - url: ./
+    branches: HEAD
+    start_path: what-is-antora
+ui:
+  bundle:
+    url: ./ui/build/ui-bundle.zip
+    snapshot: true
+  supplemental_files:
+  - path: ui.yml
+    contents: |
+      static_files: [ .nojekyll ]
+  - path: .nojekyll
+
+output:
+  dir: ./public
+
+asciidoc:
+  attributes:
+    plantuml-server-url: 'http://www.plantuml.com/plantuml'
+    plantuml-fetch-diagram: true
+    mod-loc: partial$

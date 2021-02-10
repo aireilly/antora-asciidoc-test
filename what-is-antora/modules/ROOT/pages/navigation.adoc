@@ -1,0 +1,34 @@
+:navtitle: Navigation
+
+= Navigation using left hand menu
+
+Antora supports navigation using a left hand menu, this is an AsciiDoc file that contains a list of items referenced by `xref`, for example:
+
+----
+* xref:index.adoc[Home]
+** xref:content.adoc[]
+** xref:navigation.adoc[]
+----
+
+* The default text displayed is the title of the referenced file.
+* You can define an `navtitle` attribute in the referenced file to overwrite the displayed value.
+* You can overwrite the displayed by specifying text in the xref.
+
+This helps support two conflicting requirements:
+
+* Long titles that support SEO to bring readers to the exact content they requirement.
+* Short titles for readers who are familiar with the content and want to navigate by keyword.
+
+
+[NOTE]
+====
+The `navtitle` attribute must be defined before the title of the page, for example:
+
+----
+:navtitle: Install
+
+= Installing the doohickey in the thingamabob using widgets
+
+----
+
+====

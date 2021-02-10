@@ -1,0 +1,49 @@
+= Using the Chrome AsciiDoc preview extension
+
+NOTE: The extension is named _Asciidoctor.js Live Preview_ and is also available for Firefox, but there are known issues.
+
+If you have ever used asciidoctor to generate a preview of an `adoc` file, you might be interested in this Chrome extension.
+It provides a _native_ asciidoctor preview in your browser without generating a `html` file.
+You can also use it to preview files from GitHub and GitLab.
+
+.Prerequisites
+
+* Chrome browser
+* an AsciiDoc file
+
+== Installing the Asciidoctor.js Live Preview extension in Chrome
+
+After installing the Asciidoctor.js Live Preview extension, you can test it out with files on GitHub.
+
+. Install the extension from the link:https://chrome.google.com/webstore/detail/asciidoctorjs-live-previe/iaalpfgpbocpdfblpnhhgllgbdbchmia[chrome web store].
+
+. Check that it is working by browsing the following file on GitHub:
++
+link:https://raw.githubusercontent.com/redhataccess/pantheon/master/pantheon-bundle/src/main/resources/SLING-INF/content/docs/assemblies/assembly-pantheon-help.adoc[Pantheon Help].
++
+You should be able to toggle the rendering by clicking the extension icon in your chrome toolbar:
+image:icon.png[25,25, icon]
++
+image:twopanes.png[two screenshots of active and inactive extension]
+
+Note the following:
+* The raw file contains the `include` statement to link the content required for this guide.
+* The rendered content shows that included content.
+
+
+== Configuring the Asciidoctor.js Live Preview extension
+
+By default, Chrome extensions cannot _see_ files on your local hard disk.
+You must give the extension that permission to use it for previewing content you are editing.
+
+. Right click on the extension icon and choose *Options*.
++
+image:options.png[extension options]
++
+The options listed are specific to this extension, see link:https://matthewsetter.com/technical-writing/tools/asciidoctor.js-live-preview-extension/set-custom-asciidoc-attributes/[example configuration] for more information.
+
+. Dismiss the *Options* pop-up to reveal the extension configuration page.
+
+. Enable *Allow access to file URLs* to enable access to your local files.
+
+You can now drag and drop files onto your Chrome browser to preview content.

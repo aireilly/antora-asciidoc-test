@@ -1,0 +1,6 @@
+name: what-is-antora
+title: What is Antora
+version: 'latest'
+start_ROOT: ROOT:index.adoc
+nav:
+- modules/ROOT/nav.adoc

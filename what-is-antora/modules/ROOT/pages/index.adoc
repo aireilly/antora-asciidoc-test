@@ -1,0 +1,4 @@
+= What is Antora
+
+Antora is described in the https://docs.antora.org/[Antora docs], this is just a collection of notes and observations from a CCS POV.
+
