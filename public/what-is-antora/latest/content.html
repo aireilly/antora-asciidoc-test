@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Creating Antora content sources :: Aidan Reilly</title>
+    <meta name="generator" content="Antora 2.3.4">
+    <link rel="stylesheet" href="../../_/css/site.css">
+  </head>
+  <body class="article">
+<header class="header">
+  <nav class="navbar">
+    <div class="navbar-brand">
+      <a class="navbar-item" href="../..">Aidan Reilly</a>
+      <button class="navbar-burger" data-target="topbar-nav">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+    <div id="topbar-nav" class="navbar-menu">
+      <div class="navbar-end">
+        <a class="navbar-item" href="#">Home</a>
+      </div>
+    </div>
+  </nav>
+</header>
+<div class="body">
+<div class="nav-container" data-component="what-is-antora" data-version="latest">
+  <aside class="nav">
+    <div class="panels">
+<div class="nav-panel-menu is-active" data-panel="menu">
+  <nav class="nav-menu">
+    <h3 class="title"><a href="index.html">What is Antora</a></h3>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="0">
+<ul class="nav-list">
+  <li class="nav-item" data-depth="1">
+    <button class="nav-item-toggle"></button>
+    <a class="nav-link" href="index.html">Home</a>
+<ul class="nav-list">
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="getting-started.html">Getting started</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="fcc.html">FCC (mod docs)</a>
+  </li>
+  <li class="nav-item is-current-page" data-depth="2">
+    <a class="nav-link" href="content.html">Content sources</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="navigation.html">Navigation</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="playbook.html">Playbooks</a>
+  </li>
+  <li class="nav-item" data-depth="2">
+    <a class="nav-link" href="link.html">Links</a>
+  </li>
+</ul>
+  </li>
+</ul>
+  </li>
+</ul>
+  </nav>
+</div>
+<div class="nav-panel-explore" data-panel="explore">
+  <div class="context">
+    <span class="title">What is Antora</span>
+    <span class="version">latest</span>
+  </div>
+  <ul class="components">
+    <li class="component">
+      <span class="title">Aidan Reilly</span>
+      <ul class="versions">
+        <li class="version is-latest">
+          <a href="../../aireilly/latest/index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+    <li class="component is-current">
+      <span class="title">What is Antora</span>
+      <ul class="versions">
+        <li class="version is-current is-latest">
+          <a href="index.html">latest</a>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</div>
+    </div>
+  </aside>
+</div>
+<main class="article">
+<div class="toolbar" role="navigation">
+<button class="nav-toggle"></button>
+  <a href="../../aireilly/latest/index.html" class="home-link"></a>
+<nav class="breadcrumbs" aria-label="breadcrumbs">
+  <ul>
+    <li><a href="index.html">What is Antora</a></li>
+    <li><a href="index.html">Home</a></li>
+    <li><a href="content.html">Content sources</a></li>
+  </ul>
+</nav>
+  <div class="edit-this-page"><a href="file:///home/aireilly/antora-asciidoc-test/what-is-antora/modules/ROOT/pages/content.adoc">Edit this Page</a></div>
+</div>
+  <div class="content">
+<article class="doc">
+<h1 class="page">Creating Antora content sources</h1>
+<div class="paragraph">
+<p>Typically, tech writers familiar with <code>asciidoctor</code> have difficulty understanding content sources in Antora.
+This is an experiment where I added a <a href="https://docs.antora.org/antora/2.3/playbook/set-up-playbook/#configure-your-sites-content-sources">content source</a> to <a href="https://gitlab.cee.redhat.com/pwright/pwright.pages.redhat.com">my repo</a> to illustrate the basics.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>I added a new source to <code>playbook.yml</code> (see <a href="playbook.html" class="page">Antora playbooks</a>):</p>
+<div class="listingblock">
+<div class="content">
+<pre>  - url: ./
+    branches: HEAD
+    start_path: what-is-antora</pre>
+</div>
+</div>
+</li>
+<li>
+<p>I ran <code>antora playbook.yml</code></p>
+<div class="listingblock">
+<div class="content">
+<pre>[paulwright@thinkpad pwright.pages.redhat.com]$ antora playbook.yml
+error: the start path 'what-is-antora' does not exist in /home/paulwright/repos/gitlab/pwright.pages.redhat.com (ref: master &lt;worktree&gt;)</pre>
+</div>
+</div>
+</li>
+<li>
+<p>I created the <code>what-is-antora</code> directory and ran the playbook again:</p>
+<div class="listingblock">
+<div class="content">
+<pre>[paulwright@thinkpad pwright.pages.redhat.com]$ antora playbook.yml
+error: antora.yml not found in /home/paulwright/repos/gitlab/pwright.pages.redhat.com (ref: master &lt;worktree&gt; | path: what-is-antora)</pre>
+</div>
+</div>
+</li>
+<li>
+<p>I added the following <code>antora.yml</code> to the <code>what-is-antora</code> directory:</p>
+<div class="listingblock">
+<div class="content">
+<pre>name: what-is-antora
+title: What is Antora
+version: 'latest'
+start_ROOT: ROOT:index.adoc
+nav:
+- modules/ROOT/nav.adoc</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The playbook runs but there&#8217;s no content for this source.</p>
+</div>
+</li>
+<li>
+<p>I added a <code>modules/ROOT/pages/index.adoc</code> file under the <code>what-is-antora</code> directory and ran it again.</p>
+<div class="paragraph">
+<p>Now the site builds and the content of <code>index.adoc</code> is rendered.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>This shows:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The minimum requirement for an antora site.</p>
+</li>
+<li>
+<p>You can have two content sources in same repo</p>
+</li>
+</ul>
+</div>
+</article>
+<aside class="toc sidebar" data-title="Contents" data-levels="2">
+  <div class="toc-menu"></div>
+</aside>
+  </div>
+</main>
+</div>
+<footer class="footer">
+  <p>This page was built using the Antora default UI.</p>
+  <p>The source code for this UI is licensed under the terms of the MPL-2.0 license.</p>
+</footer>
+<script src="../../_/js/site.js"></script>
+<script async src="../../_/js/vendor/highlight.js"></script>
+  </body>
+</html>
