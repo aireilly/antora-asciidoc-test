@@ -21,7 +21,7 @@ ui:
   - path: .nojekyll
 
 output:
-  dir: ./build/site
+  dir: ./docs
 
 asciidoc:
   attributes:
